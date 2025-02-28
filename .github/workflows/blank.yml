@@ -27,10 +27,7 @@ jobs:
       - name: Build docker file
         run: |
           sudo docker network create app_network
-          
           sudo docker build -t backend .
-          sudo docker -D run -d --name backend --network app_network -p 8000:8000 backend
           
       - name: push images to dockerhub
-        run: |
-          sudo docker image push backend
+        run: sudo docker image push backend
