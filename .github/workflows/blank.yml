@@ -31,4 +31,4 @@ jobs:
           sudo docker build -t backend .
           
       - name: push images to dockerhub
-        run: sudo docker image push michelkhoury/backend:latest
+        run: sudo docker image push michelkhoury/backend:1.0
