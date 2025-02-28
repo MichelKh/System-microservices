@@ -28,7 +28,7 @@ jobs:
         run: |
           sudo docker login -u michelkhoury -p 'Qwatzerty1!'
           sudo docker network create app_network
-          sudo docker build -t backend .
+          sudo docker build -t michelkhoury/backend .
           
       - name: push images to dockerhub
-        run: sudo docker image push michelkhoury/backend:1.0
+        run: sudo docker image push michelkhoury/backend:latest
