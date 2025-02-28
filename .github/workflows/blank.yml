@@ -27,16 +27,10 @@ jobs:
       - name: Build docker file
         run: |
           sudo docker network create app_network
-          sudo docker image pull redis
-          sudo docker -D run -d redis --name redis --network app_network -v redis_data:/data -p 6397:6397 "redis-server"
           
-          sudo docker build -t backend ./Backend
+          sudo docker build -t backend .
           sudo docker -D run -d --name backend --network app_network -p 8000:8000 backend
           
-          sudo docker build -t frontend ./Frontend
-          sudo docker -D run -d --name frontend --network app_network -p 3000:3000 frontend
-
       - name: push images to dockerhub
         run: |
           sudo docker image push backend
-          sudo docker image push frontend
