@@ -26,8 +26,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build docker file
         run: |
+          sudo docker login -u michelkhoury -p 'Qwatzerty1!'
           sudo docker network create app_network
           sudo docker build -t backend .
           
       - name: push images to dockerhub
-        run: sudo docker image push backend
+        run: sudo docker image push michelkhoury/backend
